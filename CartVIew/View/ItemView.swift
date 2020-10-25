@@ -41,8 +41,26 @@ struct ItemView: View {
                     Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                     
                     // Add - Sub button
+                    
+                    Button(action: {}) {
+                        Image(systemName: "minus")
+                            .font(.system(size: 16, weight: .heavy))
+                            .foregroundColor(.black)
+                        
+                        Text("\(item.quantity)")
+                            .fontWeight(.heavy)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
+                            .background(Color.black.opacity(0.06))
+                        
+                        Image(systemName: "plus")
+                            .font(.system(size: 16, weight: .heavy))
+                            .foregroundColor(.black)
+                    }
                 }
             }
         }
+        .padding()
     }
 }

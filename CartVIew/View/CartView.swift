@@ -32,7 +32,7 @@ struct CartView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 0) {
                     ForEach(cartData.items) { item in
-                        
+                        ItemView(item: <#T##Binding<Item>#>)
                     }
                 }
             }
