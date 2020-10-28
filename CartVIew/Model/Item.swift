@@ -13,7 +13,7 @@ struct Item: Identifiable {
     var name: String
     var details: String
     var image: String
-    var price: Float
+    var price: Int
     var quantity: Int
     var offset: CGFloat
     var isSwiped: Bool

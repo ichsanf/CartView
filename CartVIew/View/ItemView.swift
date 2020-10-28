@@ -33,27 +33,42 @@ struct ItemView: View {
                 
                 HStack(spacing: 15) {
                     
-                    Text("\(item.price)")
-                        .font(.title)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.black)
+                    HStack(alignment: .bottom) {
+                        Text("IDR")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                        
+                        Text("\(item.price)")
+                            .font(.system(size: 25))
+                            .fontWeight(.heavy)
+                            .foregroundColor(.black)
+                    }
+                    
                     
                     Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                     
                     // Add - Sub button
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        if item.quantity > 1 {
+                            item.quantity -= 1
+                        }
+                    }) {
                         Image(systemName: "minus")
                             .font(.system(size: 16, weight: .heavy))
                             .foregroundColor(.black)
-                        
-                        Text("\(item.quantity)")
-                            .fontWeight(.heavy)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 10)
-                            .background(Color.black.opacity(0.06))
-                        
+                    }
+                    
+                    Text("\(item.quantity)")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.black)
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .background(Color.black.opacity(0.06))
+                    
+                    Button(action: {
+                        item.quantity += 1
+                    }) {
                         Image(systemName: "plus")
                             .font(.system(size: 16, weight: .heavy))
                             .foregroundColor(.black)
