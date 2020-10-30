@@ -32,8 +32,38 @@ struct CartView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 0) {
                     ForEach(cartData.items) { item in
-                        ItemView(item: $cartData.items[getIndex(item: item)])
+                        ItemView(item: $cartData.items[getIndex(item: item)],items: $cartData.items)
                     }
+                }
+            }
+            
+            VStack {
+                HStack {
+                    
+                    Text("Total")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    // calculating tota price...
+                    Text(calculateTotalPrice())
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.black)
+                }
+                .padding([.top,.horizontal])
+                
+                Button(action: {}) {
+                    Text ("Check Out")
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 30)
+                        .background(
+                            LinearGradient(gradient: .init(colors: [Color("lightblue"), Color("blue")]), startPoint: .leading, endPoint: .trailing))
+                        .cornerRadius(15 )
                 }
             }
         }
