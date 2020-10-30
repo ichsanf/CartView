@@ -81,7 +81,7 @@ struct CartView: View {
         var price: Int = 0
         
         cartData.items.forEach { (item) in
-            price += Int(item.quantity) * item.price
+            price += Int(item.quantity) * item.price * 1000
         }
         
         return getPrice(value: price)

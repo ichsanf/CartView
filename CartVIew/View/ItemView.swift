@@ -56,9 +56,11 @@ struct ItemView: View {
                                 .fontWeight(.medium)
                             
                             Text("\(item.price)")
-                                .font(.system(size: 25))
+                                .font(.system(size: 21))
                                 .fontWeight(.heavy)
                                 .foregroundColor(.black)
+                            
+                            Spacer()
                         }
                         
                         
@@ -146,10 +148,11 @@ struct ItemView: View {
 
 
 
-func getPrice(value: Int)->String{
+func getPrice(value: Int) -> String {
     
     let format = NumberFormatter()
     format.numberStyle = .currency
+    format.locale = NSLocale(localeIdentifier: "in_ID") as Locale
     
     return format.string(from: NSNumber(value: value)) ?? ""
 }
